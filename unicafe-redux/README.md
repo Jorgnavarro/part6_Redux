@@ -1,0 +1,1 @@
+Scoring system with a reducer
