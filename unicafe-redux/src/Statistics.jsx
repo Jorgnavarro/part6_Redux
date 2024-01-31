@@ -1,10 +1,10 @@
 
 
-export function StatisticsLine({text, value}) {
+export function StatisticsLine({text, value }) {
 
-    if(isNaN(value)){
-            value = 0
-    }
+    // if(isNaN(value)){
+    //         value = 0
+    // }
 
     return (
                 <tbody className="tableColor">
