@@ -55,16 +55,19 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.containerList{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+.containerAnecdote{
+  text-align: left;
+}
+#ulAnecdotes{
+  list-style: none;
+}
+
+#createAnecdote{
+  width: 50vw;
+}
+
