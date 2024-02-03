@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { StatisticsLine } from './Statistics'
 import { Button } from './Button'
 import './App.css'
@@ -9,6 +8,7 @@ function App() {
   let arrCalification = Object.values(store.getState()).find(value => value !== 0)
   console.log(arrCalification)
   const {good, ok, bad} = store.getState()
+  
   const handleClick = (e) => {
     console.log("hola")
     store.dispatch({ type: e.target.value})
