@@ -1,6 +1,7 @@
 import './App.css'
 import AnecdotesList from './components/AnecdotesList'
 import AnecdoteForm from './components/AnecdoteForm'
+import VisibilityFilter from './components/VisibilityFilter';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App container">
         <h2>Anecdotes</h2>
         <AnecdoteForm/>
+        <VisibilityFilter/>
         <AnecdotesList/>
     </div>
   );

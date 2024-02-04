@@ -33,7 +33,7 @@ const initialState = [
     }
 ]
 
-export const anecdoteReducer = ( state = initialState, action ) =>{
+const anecdoteReducer = ( state = initialState, action ) =>{
 
     switch(action.type){
       case 'NEW_ANECDOTE':
@@ -53,8 +53,8 @@ export const anecdoteReducer = ( state = initialState, action ) =>{
         return state
     }
 } 
-
-export const store = createStore(anecdoteReducer)
+export default anecdoteReducer
+//export const store = createStore(anecdoteReducer)
 
 export const createAnecdote = (title) => ({
     type: 'NEW_ANECDOTE',
