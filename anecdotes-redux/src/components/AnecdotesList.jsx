@@ -7,16 +7,14 @@ const AnecdotesList = () => {
       let updatedList = []
       if(filter === 'NORMAL'){
         return anecdotes
-      }else if(filter === 'MOST_VOTED'){
-        return updatedList = [...anecdotes].sort(function(a, b){
-          return b.votes - a.votes
-        })
-      }else{
-        return updatedList = [...anecdotes].sort(function(a, b){
-          return a.votes - b.votes
-        })
       }
-      
+      return filter === 'MOST_VOTED'
+         ? updatedList = [...anecdotes].sort(function(a, b){
+            return b.votes - a.votes
+           })
+         : updatedList = [...anecdotes].sort(function(a, b){
+            return a.votes - b.votes
+           })
     })
     console.log(anecdotesList)
     const handleClick = (id) => {
