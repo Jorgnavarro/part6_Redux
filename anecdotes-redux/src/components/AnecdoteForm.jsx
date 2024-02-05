@@ -1,5 +1,6 @@
-import { createAnecdote } from "../reducers/anecdoteReducer"
-import { useDispatch } from "react-redux"
+import { createAnecdote } from '../reducers/anecdoteReducer'
+import { useDispatch } from 'react-redux'
+import { addNoteNotification } from '../reducers/notificationReducer'
 
 const AnecdoteForm = () => {
 
@@ -7,8 +8,12 @@ const AnecdoteForm = () => {
   const addAnecdote = (e) => {
     e.preventDefault()
     const title = e.target.anecdote.value
-    e.target.anecdote.value = ""
+    e.target.anecdote.value = ''
     dispatch(createAnecdote(title))
+    dispatch(addNoteNotification(title))
+    setTimeout(() => {
+      dispatch(addNoteNotification(null))
+    }, 5000)
   }
 
   return (
