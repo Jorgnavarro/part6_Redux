@@ -1,53 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = [
-  {
-    title: 'If it hurts, do it more often',
-    votes: 0,
-    id: 1
-  },
-  {
-    title: 'Adding manpower to a late software project makes it later!',
-    votes: 0,
-    id: 2
-  },
-  {
-    title: 'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-    votes: 0,
-    id: 3
-  },
-  {
-    title: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-    votes: 0,
-    id: 4
-  },
-  {
-    title: 'Premature optimization is the root of all evil.',
-    votes: 0,
-    id: 5
-  },
-  {
-    title: 'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
-    votes: 0,
-    id: 6
-  }
-]
 
-const generateId = () => {
-  return Number((Math.random() * 1000000).toFixed(0))
-}
 
 const anecdoteSlice = createSlice({
   name: 'anecdotes',
-  initialState,
+  initialState: [],
   reducers: {
     createAnecdote( state, action ){
-      const title = action.payload
-      state.push({
-        title,
-        votes: 0,
-        id: generateId()
-      })
+      state.push(action.payload)
     },
     voteAnAnecdote( state, action ){
       const id = action.payload
@@ -60,11 +20,14 @@ const anecdoteSlice = createSlice({
       return state.map(anecdote =>
         anecdote.id !== id ? anecdote : updatedAnecdote
       )
+    },
+    setAnecdotes(state, action){
+      return action.payload
     }
   }
 })
 
-export const { createAnecdote, voteAnAnecdote } = anecdoteSlice.actions
+export const { createAnecdote, voteAnAnecdote, setAnecdotes } = anecdoteSlice.actions
 
 export default anecdoteSlice.reducer
 
@@ -104,3 +67,43 @@ export default anecdoteSlice.reducer
 //     type: 'ADD_VOTE',
 //     data: { id }
 // })
+
+//-------------Cuando no había backend y se creaba el estado inicial
+// const initialState = [
+//   {
+//     title: 'If it hurts, do it more often',
+//     votes: 0,
+//     id: 1
+//   },
+//   {
+//     title: 'Adding manpower to a late software project makes it later!',
+//     votes: 0,
+//     id: 2
+//   },
+//   {
+//     title: 'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+//     votes: 0,
+//     id: 3
+//   },
+//   {
+//     title: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+//     votes: 0,
+//     id: 4
+//   },
+//   {
+//     title: 'Premature optimization is the root of all evil.',
+//     votes: 0,
+//     id: 5
+//   },
+//   {
+//     title: 'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
+//     votes: 0,
+//     id: 6
+//   }
+// ]
+
+//---------------Generador de ids aleatorias
+
+// const generateId = () => {
+//   return Number((Math.random() * 1000000).toFixed(0))
+// }
