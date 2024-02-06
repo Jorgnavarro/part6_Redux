@@ -7,14 +7,22 @@ const notificationSlice = createSlice({
   initialState: null,
   reducers: {
     addNoteNotification(state, action){
-      return action.payload
+      const config = {
+        message: action.payload,
+        styleNotification: 'alert-success'
+      }
+      return config
     },
     addVoteNotification(state, action){
-      return action.payload
+      const config = {
+        message: action.payload,
+        styleNotification: 'alert-light'
+      }
+      return config
     }
   }
 })
 
-export const { addNoteNotification } = notificationSlice.actions
+export const { addNoteNotification, addVoteNotification } = notificationSlice.actions
 
 export default notificationSlice.reducer

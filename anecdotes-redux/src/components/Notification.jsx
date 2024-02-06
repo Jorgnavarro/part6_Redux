@@ -1,21 +1,30 @@
-import { useSelector } from 'react-redux'
+import { useSelector} from 'react-redux'
 
 
 const Notification = () => {
-  const notificationMessage = useSelector(({ notification }) => {
-    if(notification !== null){
-      return notification
-    }
+
+  const notificationConfig = useSelector(({ notification }) => {
+    return notification
   })
 
-  if(!notificationMessage){
+  //Esto es necesario para que cuando se haga la desestructuración el componente no arroje problemas al estar en un estado inicial null
+  if(!notificationConfig){
     return null
   }
-
+  
+  
+  const { message, styleNotification } = notificationConfig
+  
+  const template = styleNotification === 'alert-success'
+    ? `The anecdote: "${message}" was added ✅`
+    : `You voted 👌🏽 "${message}"`
+  
   return (
-    <div className={'alert alert-success text-center'} role="alert" id="container-error">
-      <strong>  {notificationMessage} </strong>
-    </div>
+    <>
+    {message && <div className={`alert ${styleNotification} text-center`} role="alert" id="container-error">
+      <strong>  {template} </strong>
+    </div>}
+    </>
   )
 }
 
