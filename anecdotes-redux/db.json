@@ -49,6 +49,11 @@
       "id": "f67b",
       "title": "If you feel bored, you probably don't have enough intelligence to appreciate life yet.",
       "votes": 0
+    },
+    {
+      "id": "2ab0",
+      "title": "This a test using Redux Thunk",
+      "votes": 0
     }
   ]
 }
