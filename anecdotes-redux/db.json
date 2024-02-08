@@ -2,17 +2,17 @@
   "anecdotes": [
     {
       "title": "If it hurts, do it more often",
-      "votes": 2,
+      "votes": 4,
       "id": "1"
     },
     {
       "title": "Adding manpower to a late software project makes it later!",
-      "votes": 1,
+      "votes": 2,
       "id": "2"
     },
     {
       "title": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
-      "votes": 1,
+      "votes": 4,
       "id": "3"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "title": "Premature optimization is the root of all evil.",
-      "votes": 0,
+      "votes": 1,
       "id": "5"
     },
     {
@@ -74,6 +74,11 @@
       "id": "0fd5",
       "title": "Never give up!!! Thanks father for a new opportunity",
       "votes": 0
+    },
+    {
+      "id": "88af",
+      "title": "Async functions allow to combine reducers",
+      "votes": 1
     }
   ]
 }
