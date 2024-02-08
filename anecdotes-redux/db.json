@@ -2,17 +2,17 @@
   "anecdotes": [
     {
       "title": "If it hurts, do it more often",
-      "votes": 0,
+      "votes": 2,
       "id": "1"
     },
     {
       "title": "Adding manpower to a late software project makes it later!",
-      "votes": 0,
+      "votes": 1,
       "id": "2"
     },
     {
       "title": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
-      "votes": 0,
+      "votes": 1,
       "id": "3"
     },
     {
@@ -53,6 +53,26 @@
     {
       "id": "2ab0",
       "title": "This a test using Redux Thunk",
+      "votes": 2
+    },
+    {
+      "id": "2c38",
+      "title": "God is with me",
+      "votes": 1
+    },
+    {
+      "id": "7147",
+      "title": "With you everything is possible",
+      "votes": 0
+    },
+    {
+      "id": "8848",
+      "title": "Thanks God, without you nothing is possible",
+      "votes": 0
+    },
+    {
+      "id": "0fd5",
+      "title": "Never give up!!! Thanks father for a new opportunity",
       "votes": 0
     }
   ]

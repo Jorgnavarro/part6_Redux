@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { voteAnAnecdote } from '../reducers/anecdoteReducer'
+import { voteAnAnecdoteService } from '../reducers/anecdoteReducer'
 import { useDispatch, useSelector } from 'react-redux'
-import { addVoteNotification } from '../reducers/notificationReducer'
+import { setNotification, clearNotification } from '../reducers/notificationReducer'
 const AnecdotesList = () => {
   const dispatch = useDispatch()
   const anecdotesList = useSelector(({ filter, anecdotes }) => {
@@ -19,18 +19,14 @@ const AnecdotesList = () => {
   })
   
   const handleClick = ({id, title}) => {
-    dispatch(voteAnAnecdote(id))
-    dispatch(addVoteNotification(title))
+    dispatch(voteAnAnecdoteService(id))
+    dispatch(setNotification(`You voted 👌🏽 "${title}"`))
     setTimeout(()=> {
-      dispatch(addVoteNotification(null))
+      dispatch(clearNotification())
     }, 5000)
   }
 
-  // const orderByVotes = [...anecdotes.anecdotes].sort(function(a, b){
-  //    return b.votes - a.votes
-  // })
-
-  // console.log(orderByVotes)
+ 
 
   return (
     <ul id='ulAnecdotes' className='containerList mt-5'>
