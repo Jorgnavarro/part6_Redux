@@ -2,7 +2,7 @@
   "anecdotes": [
     {
       "title": "If it hurts, do it more often",
-      "votes": 4,
+      "votes": 5,
       "id": "1"
     },
     {
@@ -17,23 +17,23 @@
     },
     {
       "title": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-      "votes": 0,
+      "votes": 1,
       "id": "4"
     },
     {
       "title": "Premature optimization is the root of all evil.",
-      "votes": 1,
+      "votes": 2,
       "id": "5"
     },
     {
       "title": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
-      "votes": 0,
+      "votes": 4,
       "id": "6"
     },
     {
       "id": "4450",
       "title": "The only certain thing is the present.",
-      "votes": 0
+      "votes": 3
     },
     {
       "id": "4fda",
@@ -43,12 +43,12 @@
     {
       "id": "72ea",
       "title": "I´m a new anecdote",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "f67b",
       "title": "If you feel bored, you probably don't have enough intelligence to appreciate life yet.",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "2ab0",

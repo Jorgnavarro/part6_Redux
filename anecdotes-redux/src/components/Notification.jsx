@@ -1,4 +1,4 @@
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 const Notification = () => {
@@ -11,18 +11,18 @@ const Notification = () => {
   if(!message){
     return null
   }
-  
+
   //const { message, styleNotification } = notificationConfig
-  
+
   const styleNotification = message.includes('was added')
     ? 'alert-success'
     : 'alert-light'
-  
+
   return (
     <>
-    {message && <div className={`alert ${styleNotification} text-center`} role="alert" id="container-error">
-      <strong>  {message} </strong>
-    </div>}
+      {message && <div className={`alert ${styleNotification} text-center`} role="alert" id="container-error">
+        <strong>  {message} </strong>
+      </div>}
     </>
   )
 }

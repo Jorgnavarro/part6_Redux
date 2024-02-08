@@ -17,13 +17,13 @@ const AnecdotesList = () => {
         return a.votes - b.votes
       })
   })
-  
-  const handleClick = ({id, title}) => {
+
+  const handleClick = ({ id, title }) => {
     dispatch(voteAnAnecdoteService(id))
     dispatch(setNotification(`You voted 👌🏽 "${title}"`, 10))
   }
 
- 
+
 
   return (
     <ul id='ulAnecdotes' className='containerList mt-5'>
