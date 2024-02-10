@@ -1,13 +1,52 @@
 
 import './App.css'
-import { useQuery } from 'react-query'
-import { getAnecdotes }  from './requests'
+import { useQuery, useQueryClient, useMutation } from 'react-query'
+import { getAnecdotes, createAnecdote, updateAnAnecdote }  from './requests'
 
 function App() {
-
   const result = useQuery('anecdotes', getAnecdotes, {
     refetchOnWindowFocus: false
   })
+
+  const anecdotes = result.data
+
+  const queryClient = useQueryClient()
+
+  const newAnecdoteMutation = useMutation(createAnecdote, {
+    onSuccess: (newAnecdote) => {
+        if(typeof newAnecdote === 'object'){
+          const anecdotes = queryClient.getQueryData('anecdotes')
+          queryClient.setQueryData('anecdotes', anecdotes.concat(newAnecdote))
+        }
+    }
+  })
+
+  const addAnecdote = (e) => {
+    e.preventDefault()
+    const content = e.target.anecdote.value
+    e.target.anecdote.value = ''
+    newAnecdoteMutation.mutate({
+      content,
+      votes: 0
+    })
+  } 
+
+  const voteAnAnecdoteMutation = useMutation(updateAnAnecdote, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('anecdotes')
+    }
+  })
+
+  const handleClick = (anecdote) => {
+    console.log(anecdote)
+    voteAnAnecdoteMutation.mutate({
+      ...anecdote,
+      votes: anecdote.votes + 1
+    })
+  }
+
+
+  console.log(result)
 
   if(result.isLoading){
     return <div>
@@ -15,15 +54,19 @@ function App() {
       <div className="spinner-grow text-light" role="status">
       </div> 
     </div>
+  }else if(result.isError){
+    return <div>
+      <h1>Anecdote service not available due to problems in server</h1>
+    </div>
   }
 
-  const anecdotes = result.data
+  
   console.log(anecdotes)
 
   return (
     <div>
       <h1>Anecdotes React Query</h1>
-      <form id="createAnecdote" className="mt-5">
+      <form onSubmit={addAnecdote} id="createAnecdote" className="mt-5">
       <div id="containerInBtn" className="row align-items-center">
         <div className="col-10">
           <input
