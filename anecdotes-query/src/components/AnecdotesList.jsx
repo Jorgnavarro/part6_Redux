@@ -1,7 +1,8 @@
 import { useQuery, useQueryClient, useMutation } from "react-query"
 import { getAnecdotes, updateAnAnecdote } from "../requests"
-import { useContext } from "react"
-import NotificationContext from "../context/globlalContext"
+// import { useContext } from "react"
+// import NotificationContext from "../context/globlalContext"
+import { useNotify } from "../context/globlalContext"
 
 
 // eslint-disable-next-line react/prop-types
@@ -10,7 +11,8 @@ const AnecdotesList = () => {
     const queryClient = useQueryClient()
 
     // eslint-disable-next-line no-unused-vars
-    const [notification, dispatch] = useContext(NotificationContext)
+    //const [notification, dispatch] = useContext(NotificationContext)
+    const notifyWith = useNotify()
 
     const voteAnAnecdoteMutation = useMutation(updateAnAnecdote, {
         onSuccess: () => {
@@ -19,7 +21,8 @@ const AnecdotesList = () => {
       })
 
     const result = useQuery('anecdotes', getAnecdotes, {
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: false,
+        retry: 1
     })
 
     if(result.isLoading){
@@ -41,9 +44,9 @@ const AnecdotesList = () => {
           ...anecdote,
           votes: anecdote.votes + 1
         })
-        dispatch({type: 'INFO', payload: `You voted 👌🏽 ${anecdote.content}`})
-        
-        setTimeout(() => dispatch({type: 'CLEAR'}), 5000)
+        //dispatch({type: 'INFO', payload: `You voted 👌🏽 ${anecdote.content}`})
+        notifyWith(`You voted 👌🏽 ${anecdote.content}`)
+        //setTimeout(() => dispatch({type: 'CLEAR'}), 5000)
       }
     
     const anecdotes = result.data

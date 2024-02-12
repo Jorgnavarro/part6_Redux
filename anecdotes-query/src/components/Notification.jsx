@@ -1,9 +1,11 @@
 import { useContext } from "react"
 import NotificationContext from "../context/globlalContext"
+import { useNotificationValue } from "../context/globlalContext"
 const Notification = () => {
 
     // eslint-disable-next-line no-unused-vars
-    const [notification, dispatch] = useContext(NotificationContext)
+    //const [notification, dispatch] = useContext(NotificationContext)
+    const notification = useNotificationValue()
 
     if(!notification){
         return null

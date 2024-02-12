@@ -8,6 +8,7 @@ export const getAnecdotes = () => {
 }
 
 export const createAnecdote = (anecdote) => {
+
     if(anecdote.content.length>=5){
         return axios.post(baseUrl, anecdote).then(res => res.data)
     }

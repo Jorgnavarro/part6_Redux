@@ -2,10 +2,11 @@ import { useQueryClient, useMutation } from 'react-query'
 import { createAnecdote }  from '../requests'
 import { useContext } from "react"
 import NotificationContext from "../context/globlalContext"
-
+import { useNotify } from '../context/globlalContext'
 const AddNewAnecdoteForm = () => {
-
+  const notifyWith = useNotify()
   const queryClient = useQueryClient()
+
 
   // eslint-disable-next-line no-unused-vars
   const [notification, dispatch] = useContext(NotificationContext)
@@ -16,10 +17,10 @@ const AddNewAnecdoteForm = () => {
           const anecdotes = queryClient.getQueryData('anecdotes')
           queryClient.setQueryData('anecdotes', anecdotes.concat(newAnecdote))
         }else{
-            dispatch({ type: 'INFO', payload: 'Too short anecdote, have length 5 or more ❌'})
-            setTimeout(()=> dispatch({type: 'CLEAR'}), 5000)
+            notifyWith('Too short anecdote, have length 5 or more ❌')
         }
     }
+    
   })
 
   const addAnecdote = (e) => {
@@ -30,8 +31,9 @@ const AddNewAnecdoteForm = () => {
       content,
       votes: 0
     })
-    dispatch({ type: 'INFO', payload: `Your anecdote: "${content}" was added ✅`})
-    setTimeout(()=> dispatch({type:'CLEAR'}), 5000)
+    // dispatch({ type: 'INFO', payload: `Your anecdote: "${content}" was added ✅`})
+    // setTimeout(()=> dispatch({type:'CLEAR'}), 5000)
+    notifyWith(`Your anecdote: "${content}" was added ✅`)
   } 
 
   return (
