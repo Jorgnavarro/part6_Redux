@@ -35,9 +35,9 @@ export const createAnecdote = (title) => {
   }
 }
 
-export const voteAnAnecdoteService = (id) =>{
+export const voteAnAnecdoteService = (id) => {
   return async (dispatch, getState) => {
-    
+
     const anecdotes = getState().anecdotes
 
     const anecdoteToUpdate = anecdotes.find(anecdote => anecdote.id === id)
@@ -53,7 +53,7 @@ export const voteAnAnecdoteService = (id) =>{
 
     dispatch(setAnecdotes(udaptedList))
   }
-} 
+}
 
 
 
